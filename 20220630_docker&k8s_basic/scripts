@@ -1,0 +1,13 @@
+## mysql container
+docker run --name mysql000ex11 -dit --net=wordpress000net1 -e MYSQL_ROOT_PASSWORD=myrootpass -e MYSQL_DATABASE=wordpress000db -e MYSQL_USER=wordpress000kun -e MYSQL_PASSWORD=wakunpass mysql --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci --default-authentication-plugin=mysql_native_password
+
+## wordpress container
+docker run --name wordpress000ex12 -dit --network=wordpress000net1 -p 8085:80 -e WORDPRESS_DB_HOST=mysql000ex11 -e WORDPRESS_DB_NAME=wordpress000db -e WORDPRESS_DB_USER=wordpress000kun -e WORDPRESS_DB_PASSWORD=wakunpass wordpress
+
+http://localhost:8055/
+
+- MySQLのhost nameとは？
+    - MySQLデータベースが稼働しているサーバーの名前
+    - MySQLのdb nameは中のdb nameでその中にtable nameがある
+- 照合順序とは
+    - データベース内のデータの文字同士を比較するときのルール
