@@ -11,3 +11,14 @@ http://localhost:8055/
     - MySQLのdb nameは中のdb nameでその中にtable nameがある
 - 照合順序とは
     - データベース内のデータの文字同士を比較するときのルール
+
+## copy command
+docker run --name apa000ex19 -d -p 8089:80 httpd
+docker cp /Users/kento/kento/programming-study-logs/20220630_docker_k8s_basic/index.html apa000ex19:/usr/local/apache2/htdocs
+docker cp apa000ex19:/usr/local/apache2/htdocs/index.html /Users/kento/kento/programming-study-logs/20220630_docker_k8s_basic/
+
+## bind mount
+docker run --name apa000ex20 -d -p 8090:80 -v /Users/kento/kento/programming-study-logs/20220630_docker_k8s_basic/apa_folder:/usr/local/apache2/htdocs httpd
+
+docker volume create apa000vol1
+docker run --name apa000ex21 -d -p 8091:80 -v apa000vol:/usr/local/apache2/htdocs httpd
