@@ -22,3 +22,6 @@ docker run --name apa000ex20 -d -p 8090:80 -v /Users/kento/kento/programming-stu
 
 docker volume create apa000vol1
 docker run --name apa000ex21 -d -p 8091:80 -v apa000vol:/usr/local/apache2/htdocs httpd
+
+# kubectl
+kubectl apply -f /Users/kento/kento/programming-study-logs/20220630_docker_k8s_basic/apa000dep.yml
